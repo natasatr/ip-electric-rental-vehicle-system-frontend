@@ -1,2 +1,3 @@
 # ip-electric-rental-vehicle-system-frontend
 Angular application -> This is the central system application used by employees, with features displayed based on user roles.
+The app includes a login page and role-specific sections for administrators, operators, and managers. Administrators can manage vehicles, users, and manufacturers, as well as import vehicle data via a CSV file. Operators have access to rental overviews, vehicle maps, client management, and vehicle malfunction entry. Managers have access to all administrator and operator functionalities, along with additional pages for viewing statistical data and defining rental prices.
