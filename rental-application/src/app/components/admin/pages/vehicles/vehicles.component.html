@@ -1,0 +1,24 @@
+<div class="container mt-3">
+    <div class="vehicle-page">
+    <nav class="nav nav-tabs mb-3">
+        <a class="nav-link" routerLink="cars" routerLinkActive="active">Cars</a>
+        <a class="nav-link" routerLink="bicycles" routerLinkActive="active">Bikes</a>
+        <a class="nav-link" routerLink="scooters" routerLinkActive="active">Scooter</a>
+    </nav>
+    
+    <div class="card mt-3">
+        <div class="card-header">
+            <h5 class="mb-0 text-white">Import Vehicles from CSV</h5>
+        </div>
+        <div class="card-body d-flex align-items-center">
+            <input type="file" accept=".csv" (change)="onFileSelected($event)" class="form-control me-2" />
+            <button class="btn btn-create me-2" (click)="onUploadCSV()">Upload CSV</button>
+            <small class="text-muted ms-2">
+            Import CSV to generate <b>cars</b>, <b>bicycles</b> or <b>scooters</b> based on file name.
+            </small>
+        </div>
+    </div>
+    
+    <router-outlet></router-outlet>
+</div>
+</div>

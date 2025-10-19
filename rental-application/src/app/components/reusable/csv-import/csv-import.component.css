@@ -1,0 +1,13 @@
+.csv-import {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.csv-import span {
+    font-size: 14px;
+}
+
+.csv-import input[type="file"] {
+    max-width: 200px;
+}

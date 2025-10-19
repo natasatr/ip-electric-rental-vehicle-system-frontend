@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="header text-center">
+        <h1>Manage manufacturer</h1>
+        <p class="lead">Manage manufacturer for vehicles</p>
+    </div>
+    <div class="table-container">
+        <div class="section-title">
+            <h2>Manufacturer</h2>
+            <div class="d-flex">
+                <form (ngSubmit)="onSearch()" class="d-flex me-2">
+                    <input
+                    type="text"
+                    [(ngModel)]="searchUsername"
+                    name="username"
+                    class="form-control"
+                    placeholder="Search by name"
+                    />
+                    <button type="submit" class="btn btn-create ms-2">Search</button>
+                </form>
+            <button class="btn btn-success me-2" (click)="addManufacturerDialog()">Add Manufacturer</button>
+        </div>  
+        </div>
+
+
+<app-table
+    [columns]="columns"
+    [data]="pagedManufacturer"
+    (delete)="onDelete($event)"
+    (select)="onSelectManufacturer($event)"
+></app-table>
+<app-add-vehicle-dialog
+    [isOpen]="isDialogOpen"
+    [fields]="manufactureFields"
+    [showImage]="false"
+    (close)="onCloseDialog()"
+    (save)="onSaveManufacturer($event)"
+></app-add-vehicle-dialog>
+
+<app-message-dialog
+    [isOpen]="messageDialogOpen"
+    [message]="messageDialogText"
+    [type]="messageDialogType"
+    (close)="closeMessage()"
+></app-message-dialog>
+
+<app-edit-manufacturer-dialog
+    [isOpen]="isEditDialogOpen"
+    [manufacturer]="selectedManufacture"
+    (close)="onCloseEditDialog()"
+    (save)="onUpdateManufacturer()"
+>
+
+</app-edit-manufacturer-dialog>
+
+    <div class="d-flex justify-content-end align-items-center mt-3">
+        <button class="btn btn-secondary me-2" [disabled]="page===1" (click)="page=page-1">Previous</button>
+        <span>Page {{page}}</span>
+        <button class="btn btn-secondary ms-2" [disabled]="page*pageSize >= manufacturer.length" (click)="page=page+1">Next</button>
+    </div>
+    </div>
+</div>

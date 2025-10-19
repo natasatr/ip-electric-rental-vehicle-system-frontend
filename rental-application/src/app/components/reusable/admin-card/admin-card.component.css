@@ -1,0 +1,19 @@
+.admin-card {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.admin-card:hover {
+    transform: scale(1.05);
+    border-color: #1a1a1a;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}

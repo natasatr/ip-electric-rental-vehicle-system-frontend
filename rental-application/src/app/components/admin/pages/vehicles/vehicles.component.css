@@ -1,0 +1,97 @@
+.vehicles-page {
+    padding: 1rem;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #254066, #457b9d) !important;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+}
+
+.card-body {
+    background-color: #f9f9f9;
+}
+
+.card-body .form-control {
+    max-width: 250px;
+}
+
+.btn-create {
+    background-color: #1d3557 !important;
+    border: none;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.btn-create:hover {
+    background-color: #457b9d !important;
+    color: white !important;
+}
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem !important;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    margin: 0 0.3rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.nav-tabs .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #4b6cb7;
+    background-color: rgba(75, 108, 183, 0.1);
+    border: none;
+}
+
+.nav-tabs .nav-link:hover::before {
+    width: 70%;
+}
+
+.nav-tabs .nav-link.active {
+    color: #4b6cb7;
+    background-color: rgba(75, 108, 183, 0.15);
+    border: none;
+}
+
+.nav-tabs .nav-link.active::before {
+    width: 70%;
+}

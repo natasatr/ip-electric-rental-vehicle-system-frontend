@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="header text-center">
+        <h1>Report Malfunctions</h1>
+        <p class="lead">Select a vehicle to report a malfunction</p>
+    </div>
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Cars</h2>
+    </div>
+    <div class="table-responsive">
+        <app-table
+        [columns]="carColumns"
+        [data]="pagedCars"
+        (showDelete)="onDelete()"
+        [showDelete]="false"
+        (select)="onAddMalfunction($event, 'car')">
+        </app-table>
+    </div>
+    <div class="d-flex justify-content-end align-items-center mt-3">
+        <button class="btn btn-secondary me-2" [disabled]="carPage === 1" (click)="carPage = carPage - 1">Previous</button>
+        <span>Page {{carPage}}</span>
+        <button class="btn btn-secondary ms-2" [disabled]="carPage * pageSize >= cars.length" (click)="carPage = carPage + 1">Next</button>
+    </div>
+    </div>
+
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Bikes</h2>
+    </div>
+    <div class="table-responsive">
+        <app-table
+        [columns]="bikesColumns"
+        [data]="pagedBikes"
+        (showDelete)="onDelete()"
+        [showDelete]="false"
+        (select)="onAddMalfunction($event, 'bicycles')">
+        </app-table>
+    </div>
+    <div class="d-flex justify-content-end align-items-center mt-3">
+        <button class="btn btn-secondary me-2" [disabled]="bikesPage === 1" (click)="bikesPage = bikesPage - 1">Previous</button>
+        <span>Page {{bikesPage}}</span>
+        <button class="btn btn-secondary ms-2" [disabled]="bikesPage * pageSize >= bicycles.length" (click)="bikesPage = bikesPage + 1">Next</button>
+    </div>
+    </div>
+
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Scooters</h2>
+    </div>
+    <div class="table-responsive">
+        <app-table
+        [columns]="scooterColumns"
+        [data]="pagedScooter"
+        (showDelete)="onDelete()"
+        [showDelete]="false"
+        (select)="onAddMalfunction($event, 'scooter')">
+        </app-table>
+    </div>
+    <div class="d-flex justify-content-end align-items-center mt-3">
+        <button class="btn btn-secondary me-2" [disabled]="scooterPage === 1" (click)="scooterPage = scooterPage - 1">Previous</button>
+        <span>Page {{scooterPage}}</span>
+        <button class="btn btn-secondary ms-2" [disabled]="scooterPage * pageSize >= scooters.length" (click)="scooterPage = scooterPage + 1">Next</button>
+    </div>
+</div>
+</div>
+<app-malfunction
+    [isOpen]="isMalfunctionDialogOpen"
+    [vehicleId]="selectedVehicle?.id || null"
+    [vehicleModel]="selectedVehicle?.model || ''"
+    (close)="onCloseMalfunctionDialog()"
+    (save)="onSaveMalfunction($event)"
+    >
+</app-malfunction>

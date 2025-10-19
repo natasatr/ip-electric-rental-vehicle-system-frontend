@@ -1,0 +1,122 @@
+.card-header {
+    background: linear-gradient(135deg, #254066, #457b9d) !important;
+}
+
+.header {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 6px 4px 6px 6px rgba(26, 25, 25, 0.2);
+    margin-bottom: 30px;
+}
+
+.section-title {
+    border-bottom: 2px solid #457b9d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #1d3557;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    color: #1d3557;
+    border-radius: 6px;
+    margin: 0 3px;
+    transition: all 0.2s;
+}
+
+.pagination .page-link:hover {
+    background-color: #457b9d;
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #1d3557;
+    border-color: #1d3557;
+    color: white;
+}
+.card-header {
+    background: linear-gradient(135deg, #254066, #457b9d) !important;
+}
+
+.header {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 6px 4px 6px 6px rgba(26, 25, 25, 0.2);
+    margin-bottom: 30px;
+}
+
+.section-title {
+    border-bottom: 2px solid #457b9d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #1d3557;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    color: #1d3557;
+    border-radius: 6px;
+    margin: 0 3px;
+    transition: all 0.2s;
+}
+
+.pagination .page-link:hover {
+    background-color: #457b9d;
+    color: white;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #1d3557;
+    border-color: #1d3557;
+    color: white;
+}
+.action-buttons .btn {
+    margin-right: 5px;
+}
+.btn-create {
+    background-color: #1d3557 !important;
+    border: none;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-create:hover {
+    background-color: #457b9d !important;
+    color: white ;
+}

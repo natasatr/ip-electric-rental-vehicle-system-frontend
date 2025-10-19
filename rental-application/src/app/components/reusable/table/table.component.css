@@ -1,0 +1,85 @@
+:host {
+    display: block;
+}
+
+.table.custom-table.custom-theme {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    color: #1d3557 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    border-collapse: separate !important;
+    box-shadow: 0 4px 15px rgba(29, 53, 87, 0.2) !important;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table.custom-table.custom-theme .custom-thead {
+    background: linear-gradient(135deg, #1d3557, #457b9d) !important;
+}
+
+.table.custom-table.custom-theme .custom-thead tr {
+    background: transparent !important;
+}
+
+.table.custom-table.custom-theme .custom-thead th {
+    color: white !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    padding: 16px 12px !important;
+    border: none !important;
+    font-size: 15px !important;
+    background: transparent !important;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.table.custom-table.custom-theme .custom-tbody .custom-row {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: #1d3557 !important;
+    transition: all 0.3s ease !important;
+    border-bottom: 1px solid rgba(29, 53, 87, 0.1) !important;
+}
+
+.table.custom-table.custom-theme .custom-tbody .custom-row:last-child {
+    border-bottom: none !important;
+}
+
+.table.custom-table.custom-theme .custom-tbody .custom-row.alt-row {
+    background-color: rgba(69, 123, 157, 0.08) !important;
+}
+
+.table.custom-table.custom-theme .custom-tbody td {
+    background-color: transparent !important;
+    color: #1d3557 !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 14px 12px !important;
+    border-color: rgba(29, 53, 87, 0.1) !important;
+    font-weight: 500;
+}
+
+.table.custom-table.custom-theme .custom-btn.btn-danger {
+    background: linear-gradient(135deg, #e63946, #c1121f) !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 5px rgba(198, 18, 31, 0.3) !important;
+    color: white !important;
+}
+
+.table.custom-table.custom-theme .custom-btn.btn-danger:hover {
+    background: linear-gradient(135deg, #c1121f, #a4161a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(198, 18, 31, 0.4) !important;
+}
+
+
+.table.custom-table.custom-theme .custom-tbody .custom-row:hover {
+    background-color: rgba(69, 123, 157, 0.15) !important;
+}
+
+.table.custom-table.custom-theme .custom-tbody .custom-row.alt-row:hover {
+    background-color: rgba(69, 123, 157, 0.2) !important;
+}

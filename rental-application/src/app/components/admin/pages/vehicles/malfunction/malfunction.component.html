@@ -1,0 +1,34 @@
+<div class="dialog-backdrop" *ngIf="isOpen">
+    <div class="dialog-card">
+        <h3 class="dialog-title">Add malfucntion for {{ vehicleModel }}</h3>
+
+        <div class="form-scroll">
+            <form>
+                <div class="mb-3">
+                    <label>Description</label>
+                    <textarea 
+                        [(ngModel)]="formData.description"
+                        name="description"
+                        class="form-control"
+                        rows="4"
+                        placeholder="Enter malfucntion description here..."
+                    ></textarea>
+                </div>
+                <div class="mb-3">
+                    <label>Date and time of Malfunction</label>
+                    <input
+                        type="datetime-local"
+                        [(ngModel)]="formData.dateTimeMalfunction"
+                        name="dateTimeMalfunction"
+                        class="form-control"
+                    />
+                </div>
+            </form>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button class="btn btn-primary me-2" (click)="onSave()">Save</button>
+            <button class="btn btn-secondary" (click)="onClose()">Cancel</button>
+
+        </div>
+    </div>
+</div>

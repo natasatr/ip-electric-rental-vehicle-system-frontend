@@ -1,0 +1,36 @@
+<table class="table custom-table table-bordered table-hover custom-theme">
+    <thead class="custom-thead">
+        <tr>
+            <th *ngFor="let col of columns"> {{ col }}</th>
+            <th *ngIf="showDelete">Actions</th>
+            <th *ngIf="showBlock">Actions</th>
+            <th *ngIf="showRentButton">Rents</th>
+        </tr>
+    </thead>
+    <tbody class="custom-tbody">
+        <tr *ngFor="let row of data; let i = index" 
+            [class.alt-row]="i % 2 == 0"
+            class="custom-row"
+            (click)="onSelect(row)">
+            <td *ngFor="let col of columns">{{row[col]}}</td>
+            <td *ngIf="showDelete">
+                <button class="btn btn-danger btn-sm custom-btn" 
+                        (click)=" $event.stopPropagation(); onDelete(row)">Delete</button>
+            </td>
+            <td *ngIf="showBlock">
+                <button class="btn btn-sm custom-btn"
+                        [ngClass]="blockClassFn ? blockClassFn(row) : 'btn-danger'"
+                        (click)=" $event.stopPropagation(); onBlock(row)">
+                    {{ blockLabelFn ? blockLabelFn(row) : 'Block' }}
+                </button>
+            </td>
+            <td *ngIf="showRentButton">
+                <button 
+                    class="btn btn-success btn-sm custom-btn"
+                    (click)="$event.stopPropagation(); onShowRents(row)">
+                    Show Rents
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

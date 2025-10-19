@@ -1,0 +1,54 @@
+<div class="dialog-backdrop" *ngIf="isOpen">
+  <div class="dialog-card">
+    <h3 class="dialog-title">Add</h3>
+
+    <div class="form-scroll">
+      <form #addForm="ngForm">
+        <div *ngFor="let field of fields" class="mb-3">
+          <label>{{ field.label }}</label>
+
+          
+          <input
+            *ngIf="field.type !== 'select'"
+            [type]="field.type"
+            [(ngModel)]="formData[field.key]"
+            [name]="field.key"
+            class="form-control"
+            required
+        />
+
+        
+            <select
+                *ngIf="field.type === 'select'"
+                [(ngModel)]="formData[field.key]"
+                [name]="field.key"
+                class="form-control"
+                >
+                <option value="" selected>None</option>
+                
+                <option *ngFor="let m of field.key === 'manufacturerId' ? manufacturers : field.options"
+                        [value]="field.key === 'manufacturerId' ? m.id : m">
+                    {{ field.key === 'manufacturerId' ? m.name : m }}
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3" *ngIf="showImage">
+          <label>Picture: </label>
+          <input
+            type="file"
+            (change)="onFileChange($event)"
+            class="form-control"
+            required
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn btn-secondary me-2" (click)="close.emit()">Cancel</button>
+
+      <button class="btn btn-primary" (click)="onSave()" [disabled]="!addForm.form.valid">Save</button>
+    </div>
+  </div>
+</div>

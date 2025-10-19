@@ -1,0 +1,17 @@
+<div class="dialog-backdrop" *ngIf="isOpen">
+    <div class="dialog-card">
+        <h4 
+        [ngClass]="{
+            'text-success': type==='success',
+            'text-danger': type==='error',
+            'text-warning': type==='warning'
+        }"
+        >
+        {{ type | uppercase }}
+        </h4>
+        <p>{{ message }}</p>
+        <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-secondary" (click)="onClose()">OK</button>
+        </div>
+    </div>
+</div>

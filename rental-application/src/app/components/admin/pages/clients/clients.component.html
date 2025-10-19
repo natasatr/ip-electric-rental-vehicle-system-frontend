@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="header text-center">
+        <h1>Manage clients</h1>
+        <p class="lead">Block - unblock client</p>
+    </div>
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Clients</h2>
+        <div class="d-flex">
+        <form (ngSubmit)="onSearch()" class="d-flex me-2">
+            <input
+            type="text"
+            [(ngModel)]="searchUsername"
+            name="username"
+            class="form-control"
+            placeholder="Search by username"
+            />
+            <button type="submit" class="btn btn-create ms-2">Search</button>
+        </form>
+</div>
+    </div>
+    <app-table
+        [columns]="columns"
+        [data]="pagedEmployee"
+        [showDelete]="false"
+        [showBlock]="true"
+        [blockLabelFn]="getBlockLabel"
+        [blockClassFn]="getBlockClass"
+        (block)="onBlockClient($event)"
+        (select)="onSelectClient($event)">
+    </app-table>
+
+
+<div class="d-flex justify-content-end align-items-center mt-3">
+    <button class="btn btn-secondary me-2" [disabled]="page===1" (click)="page=page-1">Previous</button>
+    <span>Page {{page}}</span>
+    <button class="btn btn-secondary ms-2" [disabled]="page*pageSize >= clients.length" (click)="page=page+1">Next</button>
+</div>
+</div>
+
+<app-client-details   
+    [client]='selectedClient'
+    (close)='onCloseDialog()'
+>
+</app-client-details>

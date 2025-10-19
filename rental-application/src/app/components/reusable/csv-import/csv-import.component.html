@@ -1,0 +1,7 @@
+<div class="csv-import d-flex align-items-center">
+    <span class="me-3 fw-bold text-primary">
+        Import CSV to generate {{ entityName }}
+    </span>
+    <input type="file" accept=".csv" (change)="onFileChange($event)" class="form-control form-control-sm me-2" />
+    <button class="btn btn-primary btn-sm" (click)="onUploadClick()">Upload CSV</button>
+</div>

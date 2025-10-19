@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="header text-center">
+        <h1>Manage employees</h1>
+        <p class="lead">CRUD</p>
+    </div>
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Employees</h2>
+        <div class="d-flex">
+        <form (ngSubmit)="onSearch()" class="d-flex me-2">
+            <input
+            type="text"
+            [(ngModel)]="searchUsername"
+            name="username"
+            class="form-control"
+            placeholder="Search by username"
+            />
+            <button type="submit" class="btn btn-create ms-2">Search</button>
+        </form>
+        <button class="btn btn-success me-2" (click)="addEmployeeDialog()">Add Employee</button>
+    </div>
+    </div>
+<app-table
+    [columns]="columns"
+    [data]="pagedEmployee"
+    (delete)="onDelete($event)"
+    (select)="onSelectEmployee($event)"
+></app-table>
+
+<app-add-vehicle-dialog
+    [isOpen]="isDialogOpen"
+    [fields]="employeeFields"
+    [showImage]="false"
+    (close)="onCloseDialog()"
+    (save)="onSaveEmployee($event)"
+></app-add-vehicle-dialog>
+
+<app-edit-user-dialog
+    [isOpen]="isEditDialogOpen"
+    [employee]="selectedEmployee"
+    (close)="onCloseEditDialog()"
+    (save)="onUpdateEmployee()"
+>
+</app-edit-user-dialog> 
+
+<div class="d-flex justify-content-end align-items-center mt-3">
+    <button class="btn btn-secondary me-2" [disabled]="page===1" (click)="page=page-1">Previous</button>
+    <span>Page {{page}}</span>
+    <button class="btn btn-secondary ms-2" [disabled]="page*pageSize >= employees.length" (click)="page=page+1">Next</button>
+</div>
+</div>

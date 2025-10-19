@@ -1,0 +1,94 @@
+<div class="register-container">
+  <div class="register-card">
+    <h4 class="title">Register</h4>
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+      <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="registerData.firstName"
+          name="firstName"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="registerData.lastName"
+          name="lastName"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="registerData.username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          [(ngModel)]="registerData.password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          [(ngModel)]="registerData.email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Role</label>
+        <select
+          class="form-select"
+          [(ngModel)]="registerData.role"
+          name="role"
+          required
+        >
+          <option value="ADMIN">ADMIN</option>
+          <option value="MANAGER">MANAGER</option>
+          <option value="OPERATOR">OPERATOR</option>
+        </select>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      
+      <button
+        type="submit"
+        class="btn btn-register fw-bold"
+        [disabled]="!registerForm.valid"
+      >
+        Register
+      </button>
+    </form>
+
+    <div class="text-center mt-3">
+      <a routerLink="/login" class="link-light"
+        >Already have an account? Login</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="header text-center">
+        <h1>Manage Scooter</h1>
+        <p class="lead">Vehicles- scooter</p>
+    </div>
+    <div class="table-container">
+    <div class="section-title">
+        <h2>Electric scooter</h2>
+        <div class="d-flex">
+        <form (ngSubmit)="onSearch()" class="d-flex me-2">
+            <input
+            type="text"
+            [(ngModel)]="searchById"
+            name="uniqueId"
+            class="form-control"
+            placeholder="Search by id"
+            />
+            <button type="submit" class="btn btn-create ms-2">Search</button>
+        </form>
+        <button class="btn btn-success me-2" (click)="openDialog()">Add scooter</button>
+    </div>
+    </div>
+<app-table
+    [columns]="columns"
+    [data]="pagedScooters"
+    [showRentButton]="true"
+    (delete)="onDelete($event)"
+    (select)="onSelectScooter($event)"
+    (showRents)="onShowRents($event)"
+></app-table>
+
+<app-details-vehicle 
+    *ngIf="selectedScooter"
+    [vehicle]="selectedScooter"
+    [malfunctions]="malfunctions"
+    [vehicleType]="'scooter'"
+    (addMalfunction)="onAddMalfunction($event)"
+    (deleteMalfunction)="onDeleteMalfunction($event)"
+    (close)="onCloseVehicleDetails()"
+></app-details-vehicle>
+<div *ngIf="showRentalsForCarId && rentals.length > 0" class="mt-3">
+    <h4>Rentals for Vehicle ID {{ showRentalsForCarId }}</h4>
+    <table class="table table-hover rentals-table">
+        <thead>
+        <tr>
+            <th>Client</th>
+            <th>Start Location</th>
+            <th>End Location</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let r of rentals"> 
+            <td>{{ r.clientName }}</td>
+            <td>{{ r.startLocationName }}</td>
+            <td>{{ r.endLocationName }}</td>
+            <td>{{ r.rentalDateTime | date:'short' }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-secondary mt-2" (click)="onCloseRents()">Close</button>
+</div>
+
+<app-malfunction
+    [isOpen]="isMalfunctionDialogOpen"
+    [vehicleId]="selectedScooter?.id || null"
+    [vehicleModel]="selectedScooter?.model || ''"
+    (close)="onCloseMalfunctionDialog()"
+    (save)="onSaveMalfunction($event)"
+    >
+</app-malfunction>
+
+<app-add-vehicle-dialog
+    [isOpen]="isDialogOpen"
+    [fields]="electricScooterFields"
+    [showImage]="true"
+    [manufacturers]="manufacturers"
+    (close)="onCloseDialog()"
+    (save)="onSaveScooter($event)"
+>
+</app-add-vehicle-dialog>
+
+<div class="d-flex justify-content-end align-items-center mt-3">
+    <button class="btn btn-secondary me-2" [disabled]="page===1" (click)="page=page-1">Previous</button>
+    <span>Page {{page}}</span>
+    <button class="btn btn-secondary ms-2" [disabled]="page*pageSize >= scooters.length " (click)="page=page+1">Next</button>
+</div>
+</div>
+</div>
